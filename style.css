@@ -1,0 +1,55 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9f2ff);
+}
+
+.profile-img {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+    border: 8px solid white;
+}
+
+.section-title {
+    font-weight: 700;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #0d6efd;
+    margin: 12px auto 0;
+    border-radius: 5px;
+}
+
+.education-card,
+.project-card {
+    transition: 0.3s;
+}
+
+.education-card:hover,
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.progress {
+    height: 22px;
+}
+
+footer {
+    margin-top: 0;
+}

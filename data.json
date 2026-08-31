@@ -1,0 +1,53 @@
+{
+  "profile": {
+    "name": "Ayesha Siddika Tisha",
+    "title": "Computer Science and Engineering Student",
+    "university": "Premier University, Chattogram",
+    "semester": "3rd Semester",
+    "email": "ayeshatisha@example.com",
+    "about": "I am interested in programming, web development, problem solving and learning new technologies."
+  },
+
+  "education": [
+    {
+      "id": 1,
+      "degree": "B.Sc. in Computer Science and Engineering",
+      "institution": "Premier University",
+      "status": "Running"
+    },
+    {
+      "id": 2,
+      "degree": "Higher Secondary Certificate",
+      "institution": "Mirsarai College",
+      "year": "2023"
+    },
+    {
+      "id": 3,
+      "degree": "Secondary School Certificate",
+      "institution": "Khoiyachara High School",
+      "year": "2021"
+    }
+  ],
+
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Bootstrap",
+    "C Programming",
+    "Python"
+  ],
+
+  "projects": [
+    {
+      "id": 1,
+      "name": "Academic Portfolio",
+      "description": "A personal academic portfolio website made with HTML, CSS, JavaScript and Bootstrap."
+    },
+    {
+      "id": 2,
+      "name": "Student Result Management System",
+      "description": "A simple project for managing student results."
+    }
+  ]
+}
