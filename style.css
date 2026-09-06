@@ -2106,4 +2106,81 @@ footer small {
     .quote-box {
         margin-top: 30px;
     }
+    /* =========================================================
+   GAMES — FINAL POLISH
+========================================================= */
+
+.game-card {
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.45);
+}
+
+.game-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.06),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: 0.7s ease;
+}
+
+.game-card:hover::after {
+    left: 140%;
+}
+
+.game-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(120, 0, 0, 0.12);
+}
+
+.game-icon {
+    transition: 0.3s ease;
+}
+
+.game-card:hover .game-icon {
+    transform: scale(1.15);
+    filter: grayscale(0);
+}
+
+.game-card h3 {
+    transition: 0.3s ease;
+}
+
+.game-card:hover h3 {
+    color: #b40000;
+}
+
+.play-game {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 9px 14px;
+    border: 1px solid rgba(140, 0, 0, 0.5);
+    background: rgba(100, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.game-card:hover .play-game {
+    background: rgba(130, 0, 0, 0.2);
+    border-color: #900000;
+    color: #fff;
+}
+
+.games-center h1 {
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.08),
+        0 0 35px rgba(120,0,0,0.12);
+}
 }
