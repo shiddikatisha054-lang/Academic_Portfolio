@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    TISHA — HORROR PORTFOLIO
    JavaScript
@@ -13,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const welcomeScreen = document.getElementById("welcomeScreen");
 
     if (welcomeScreen) {
+
         setTimeout(() => {
             welcomeScreen.classList.add("welcome-ready");
         }, 800);
@@ -21,26 +21,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (enterArea) {
             enterArea.addEventListener("click", () => {
+
                 welcomeScreen.classList.add("hide-welcome");
 
                 setTimeout(() => {
                     document.body.classList.add("portfolio-started");
                 }, 900);
+
             });
         }
 
         welcomeScreen.addEventListener("click", (e) => {
+
             if (
                 e.target === welcomeScreen ||
                 e.target.classList.contains("welcome-arrow")
             ) {
+
                 welcomeScreen.classList.add("hide-welcome");
 
                 setTimeout(() => {
                     document.body.classList.add("portfolio-started");
                 }, 900);
+
             }
+
         });
+
     }
 
 
@@ -59,13 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const target = document.querySelector(targetId);
 
             if (target) {
+
                 e.preventDefault();
 
                 target.scrollIntoView({
                     behavior: "smooth",
                     block: "start"
                 });
+
             }
+
         });
 
     });
@@ -95,10 +105,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 this.classList.add("correct-room");
 
                 if (ghostResult) {
+
                     ghostResult.innerHTML =
-                        "👻 <strong>YOU FOUND THE GHOST!</strong><br>" +
-                        "Room 7 was the haunted room.";
+                        '👻 <strong>YOU FOUND THE GHOST!</strong><br>' +
+                        'Room 7 was the haunted room.';
+
                     ghostResult.className = "game-result success";
+
                 }
 
             } else {
@@ -106,23 +119,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 this.classList.add("wrong-room");
 
                 if (ghostResult) {
+
                     ghostResult.innerHTML =
-                        "☠️ <strong>WRONG ROOM...</strong><br>" +
-                        "The ghost escaped. Try again.";
+                        '☠️ <strong>WRONG ROOM...</strong><br>' +
+                        'The ghost escaped. Try again.';
+
                     ghostResult.className = "game-result danger";
+
                 }
 
                 setTimeout(() => {
+
                     roomButtons.forEach(room => {
+
                         room.disabled = false;
-                        room.classList.remove("correct-room", "wrong-room");
+
+                        room.classList.remove(
+                            "correct-room",
+                            "wrong-room"
+                        );
+
                     });
 
                     if (ghostResult) {
+
                         ghostResult.innerHTML = "";
+
                         ghostResult.className = "game-result";
+
                     }
+
                 }, 1300);
+
             }
 
         });
@@ -147,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (answer === "32") {
 
             codeResult.innerHTML =
-                "✓ CODE CRACKED — <strong>32</strong> IS CORRECT.";
+                '✓ CODE CRACKED — <strong>32</strong> IS CORRECT.';
 
             codeResult.className = "game-result success";
 
@@ -195,7 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "AI"
     ];
 
-    let memoryCards = [];
     let firstCard = null;
     let secondCard = null;
     let lockBoard = false;
@@ -216,6 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         return shuffled;
+
     }
 
 
@@ -231,19 +259,23 @@ document.addEventListener("DOMContentLoaded", () => {
         matchedPairs = 0;
 
         if (memoryResult) {
+
             memoryResult.innerHTML =
                 "Find all 8 matching pairs.";
+
             memoryResult.className = "game-result";
+
         }
 
         const shuffledSymbols =
             shuffle([...memorySymbols, ...memorySymbols]);
 
-        memoryCards = shuffledSymbols.map((symbol, index) => {
+        shuffledSymbols.forEach((symbol, index) => {
 
             const card = document.createElement("button");
 
             card.className = "memory-card";
+
             card.dataset.symbol = symbol;
             card.dataset.index = index;
 
@@ -257,8 +289,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             memoryGrid.appendChild(card);
-
-            return card;
 
         });
 
@@ -276,6 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!firstCard) {
 
             firstCard = card;
+
             return;
 
         }
@@ -289,6 +320,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function checkMemoryMatch() {
 
+        if (!firstCard || !secondCard) return;
+
         const isMatch =
             firstCard.dataset.symbol ===
             secondCard.dataset.symbol;
@@ -300,19 +333,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
             matchedPairs++;
 
-            resetMemoryTurn();
-
             if (matchedPairs === 8) {
 
                 if (memoryResult) {
+
                     memoryResult.innerHTML =
-                        "🧠 <strong>MEMORY MASTER!</strong><br>" +
-                        "You found all 8 pairs.";
+                        '🧠 <strong>MEMORY MASTER!</strong><br>' +
+                        'You found all 8 pairs.';
+
                     memoryResult.className =
                         "game-result success";
+
                 }
 
             }
+
+            resetMemoryTurn();
 
         } else {
 
@@ -320,8 +356,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             setTimeout(() => {
 
-                firstCard.classList.remove("flipped");
-                secondCard.classList.remove("flipped");
+                if (firstCard) {
+                    firstCard.classList.remove("flipped");
+                }
+
+                if (secondCard) {
+                    secondCard.classList.remove("flipped");
+                }
 
                 resetMemoryTurn();
 
@@ -334,26 +375,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function resetMemoryTurn() {
 
-        [firstCard, secondCard] = [null, null];
-
+        firstCard = null;
+        secondCard = null;
         lockBoard = false;
 
     }
 
 
-    /* Initialize memory game when modal opens */
-
-    const memoryModal = document.getElementById("memoryGame");
+    const memoryModal =
+        document.getElementById("memoryGame");
 
     if (memoryModal) {
 
         memoryModal.addEventListener(
             "shown.bs.modal",
-            createMemoryGame
-        );
-
-        memoryModal.addEventListener(
-            "hidden.bs.modal",
             createMemoryGame
         );
 
@@ -416,9 +451,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (bugResult) {
+
             bugResult.innerHTML =
                 "Catch the bug 10 times!";
-            bugResult.className = "game-result";
+
+            bugResult.className =
+                "game-result";
+
         }
 
         moveBug();
@@ -437,8 +476,10 @@ document.addEventListener("DOMContentLoaded", () => {
             bugHits++;
 
             if (bugScore) {
+
                 bugScore.textContent =
                     `${bugHits} / 10`;
+
             }
 
             if (bugHits >= 10) {
@@ -446,11 +487,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 bugMoving = false;
 
                 if (bugResult) {
+
                     bugResult.innerHTML =
-                        "🐛 <strong>YOU ESCAPED THE BUG!</strong><br>" +
-                        "10 hits completed.";
+                        '🐛 <strong>YOU ESCAPED THE BUG!</strong><br>' +
+                        '10 hits completed.';
+
                     bugResult.className =
                         "game-result success";
+
                 }
 
                 return;
@@ -464,7 +508,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    const bugModal = document.getElementById("bugGame");
+    const bugModal =
+        document.getElementById("bugGame");
 
     if (bugModal) {
 
@@ -486,8 +531,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        GHOST TRAVELER
        ONLY MOVES FORWARD WITH SCROLL
-       NO SIDEWAYS MOVEMENT
-       NO BOBBING
        ===================================================== */
 
     const ghostTraveler =
@@ -519,13 +562,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const scrollY =
             window.scrollY;
 
-        /*
-         * Progress through the road.
-         * Ghost movement is ONLY vertical.
-         */
-
         const startPoint =
-            Math.max(0, roadTop - viewportHeight * 0.7);
+            Math.max(
+                0,
+                roadTop - viewportHeight * 0.7
+            );
 
         const endPoint =
             roadTop + roadHeight - viewportHeight;
@@ -537,17 +578,12 @@ document.addEventListener("DOMContentLoaded", () => {
         progress =
             Math.max(0, Math.min(1, progress));
 
-
-        /*
-         * Move ghost forward vertically.
-         * No X movement.
-         */
-
         const minTop = 68;
         const maxTop = 43;
 
         const ghostTop =
-            minTop - ((minTop - maxTop) * progress);
+            minTop -
+            ((minTop - maxTop) * progress);
 
         ghostTraveler.style.top =
             `${ghostTop}%`;
@@ -561,11 +597,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const now = Date.now();
 
-        /*
-         * Ghost occasionally says HI.
-         * Cooldown prevents it from appearing constantly.
-         */
-
         if (now - lastHiTime < 5000) return;
 
         if (Math.random() < 0.35) {
@@ -575,7 +606,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ghostHi.classList.add("show");
 
             setTimeout(() => {
+
                 ghostHi.classList.remove("show");
+
             }, 1800);
 
         }
@@ -588,11 +621,6 @@ document.addEventListener("DOMContentLoaded", () => {
         () => {
 
             updateGhost();
-
-            /*
-             * Only trigger interaction while scrolling
-             * forward through the road.
-             */
 
             if (window.scrollY > lastScrollY) {
                 ghostInteraction();
@@ -613,7 +641,9 @@ document.addEventListener("DOMContentLoaded", () => {
        ===================================================== */
 
     const navLinks =
-        document.querySelectorAll(".horror-navbar a[href^='#']");
+        document.querySelectorAll(
+            ".horror-navbar a[href^='#']"
+        );
 
     const sections =
         document.querySelectorAll(
@@ -660,13 +690,11 @@ document.addEventListener("DOMContentLoaded", () => {
         { passive: true }
     );
 
-
     updateActiveNav();
 
 
     /* =====================================================
        CONTACT FORM
-       Sends message through user's email client
        ===================================================== */
 
     const contactForm =
@@ -675,86 +703,96 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (contactForm) {
 
-        contactForm.addEventListener("submit", function (e) {
+        contactForm.addEventListener(
+            "submit",
+            function (e) {
 
-            e.preventDefault();
+                e.preventDefault();
 
-            const nameField =
-                this.querySelector(
-                    'input[name="name"], #name'
-                );
+                const nameField =
+                    this.querySelector(
+                        'input[name="name"], #name'
+                    );
 
-            const emailField =
-                this.querySelector(
-                    'input[name="email"], #email'
-                );
+                const emailField =
+                    this.querySelector(
+                        'input[name="email"], #email'
+                    );
 
-            const subjectField =
-                this.querySelector(
-                    'input[name="subject"], #subject'
-                );
+                const subjectField =
+                    this.querySelector(
+                        'input[name="subject"], #subject'
+                    );
 
-            const messageField =
-                this.querySelector(
-                    'textarea[name="message"], #message'
-                );
-
-
-            const name =
-                nameField ? nameField.value.trim() : "";
-
-            const email =
-                emailField ? emailField.value.trim() : "";
-
-            const subject =
-                subjectField
-                    ? subjectField.value.trim()
-                    : "Portfolio Contact";
-
-            const message =
-                messageField
-                    ? messageField.value.trim()
-                    : "";
+                const messageField =
+                    this.querySelector(
+                        'textarea[name="message"], #message'
+                    );
 
 
-            if (!name || !email || !message) {
+                const name =
+                    nameField
+                        ? nameField.value.trim()
+                        : "";
 
-                alert(
-                    "Please fill in your name, email and message."
-                );
+                const email =
+                    emailField
+                        ? emailField.value.trim()
+                        : "";
 
-                return;
+                const subject =
+                    subjectField
+                        ? subjectField.value.trim()
+                        : "Portfolio Contact";
+
+                const message =
+                    messageField
+                        ? messageField.value.trim()
+                        : "";
+
+
+                if (!name || !email || !message) {
+
+                    alert(
+                        "Please fill in your name, email and message."
+                    );
+
+                    return;
+
+                }
+
+
+                const mailSubject =
+                    encodeURIComponent(subject);
+
+                const mailBody =
+                    encodeURIComponent(
+                        `Hello Tisha,
+
+Name: ${name}
+Email: ${email}
+
+Message:
+${message}`
+                    );
+
+
+                const mailto =
+                    `mailto:shiddikatisha054@gmail.com` +
+                    `?subject=${mailSubject}` +
+                    `&body=${mailBody}`;
+
+
+                window.location.href = mailto;
 
             }
-
-
-            const mailSubject =
-                encodeURIComponent(subject);
-
-            const mailBody =
-                encodeURIComponent(
-                    `Hello Tisha,\n\n` +
-                    `Name: ${name}\n` +
-                    `Email: ${email}\n\n` +
-                    `Message:\n${message}`
-                );
-
-
-            const mailto =
-                `mailto:shiddikatisha054@gmail.com` +
-                `?subject=${mailSubject}` +
-                `&body=${mailBody}`;
-
-
-            window.location.href = mailto;
-
-        });
+        );
 
     }
 
 
     /* =====================================================
-       RESET GAME DATA WHEN MODALS CLOSE
+       RESET GHOST GAME WHEN MODAL CLOSES
        ===================================================== */
 
     const ghostModal =
@@ -791,6 +829,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
+    /* =====================================================
+       RESET CODE GAME WHEN MODAL CLOSES
+       ===================================================== */
 
     const codeModal =
         document.getElementById("codeGame");
@@ -839,7 +881,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (Math.random() > 0.45) {
 
-                    element.classList.toggle("window-flicker");
+                    element.classList.toggle(
+                        "window-flicker"
+                    );
 
                 }
 
