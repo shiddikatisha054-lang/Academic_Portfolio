@@ -1,53 +1,76 @@
 {
   "profile": {
     "name": "Ayesha Siddika Tisha",
-    "title": "Computer Science and Engineering Student",
+    "department": "Computer Science & Engineering",
     "university": "Premier University, Chattogram",
-    "semester": "3rd Semester",
-    "email": "shiddikatisha@gmail.com",
-    "about": "I am interested in programming, web development, problem solving and learning new technologies."
+    "email": "shiddikatisha054@gmail.com",
+    "phone": "01897811450",
+    "location": "Chattogram, Bangladesh"
   },
 
   "education": [
     {
-      "id": 1,
-      "degree": "B.Sc. in Computer Science and Engineering",
-      "institution": "Premier University",
-      "status": "Running"
+      "degree": "B.Sc. in Computer Science & Engineering",
+      "institution": "Premier University, Chattogram",
+      "year": "Running"
     },
     {
-      "id": 2,
-      "degree": "Higher Secondary Certificate",
-      "institution": "Mirsarai College",
+      "degree": "Higher Secondary Certificate (HSC)",
+      "institution": "Mirsarai College, Chattogram",
       "year": "2023"
     },
     {
-      "id": 3,
-      "degree": "Secondary School Certificate",
-      "institution": "Khoiyachara High School",
+      "degree": "Secondary School Certificate (SSC)",
+      "institution": "Khoiyachora High School",
       "year": "2021"
     }
   ],
 
-  "skills": [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Bootstrap",
-    "C Programming",
-    "Python"
-  ],
+  "skills": {
+    "technical": [
+      {
+        "name": "C",
+        "percentage": 75
+      },
+      {
+        "name": "C++",
+        "percentage": 70
+      },
+      {
+        "name": "Java",
+        "percentage": 65
+      },
+      {
+        "name": "HTML & CSS",
+        "percentage": 80
+      },
+      {
+        "name": "Bootstrap",
+        "percentage": 75
+      }
+    ],
+
+    "other": [
+      "Problem Solving",
+      "Microsoft Word",
+      "PowerPoint",
+      "Canva",
+      "Communication",
+      "Teamwork"
+    ]
+  },
 
   "projects": [
     {
       "id": 1,
-      "name": "Academic Portfolio",
-      "description": "A personal academic portfolio website made with HTML, CSS, JavaScript and Bootstrap."
-    },
-    {
-      "id": 2,
-      "name": "Student Result Management System",
-      "description": "A simple project for managing student results."
+      "name": "Academic Portfolio Website",
+      "description": "A horror-themed academic portfolio website showcasing personal information, education, technical skills, other skills, social profiles and contact information.",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "JavaScript"
+      ]
     }
   ]
 }

@@ -1,51 +1,132 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ayesha Siddika Tisha | Academic Portfolio</title>
+    <title>Ayesha Siddika Tisha | Portfolio</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- =========================================================
+     WELCOME SCREEN
+========================================================= -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<section id="welcomeScreen">
+
+    <div class="blood-rain">
+        <span>🩸</span>
+        <span>🩸</span>
+        <span>🩸</span>
+        <span>🩸</span>
+        <span>🩸</span>
+        <span>🩸</span>
+    </div>
+
+    <div class="welcome-content">
+
+        <div class="welcome-small">
+            ENTER IF YOU DARE
+        </div>
+
+        <h1 class="welcome-title">
+
+            <span class="blood-letter">
+                W<i></i>
+            </span>
+
+            <span class="blood-letter">
+                E<i></i>
+            </span>
+
+            <span class="blood-letter">
+                L<i></i>
+            </span>
+
+            <span class="blood-letter">
+                C<i></i>
+            </span>
+
+            <span class="blood-letter">
+                O<i></i>
+            </span>
+
+            <span class="blood-letter">
+                M<i></i>
+            </span>
+
+            <span class="blood-letter">
+                E<i></i>
+            </span>
+
+        </h1>
+
+        <p class="enter-text">
+            SCROLL TO ENTER THE UNKNOWN
+        </p>
+
+        <div class="welcome-arrow">
+            <i class="bi bi-chevron-down"></i>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top horror-navbar">
 
     <div class="container">
 
-        <a class="navbar-brand fw-bold" href="#home">
-            Ayesha Siddika Tisha
+        <a class="navbar-brand" href="#welcomeScreen">
+            TISHA<span>.</span>
         </a>
 
-        </div>button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarMenu">
-
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarMenu">
+        <div class="collapse navbar-collapse" id="mainNavbar">
 
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="#home">Home</a>
+                    <a class="nav-link" href="#games">Games</a>
                 </li>
 
                 <li class="nav-item">
@@ -57,11 +138,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
+                    <a class="nav-link" href="#technical">Skills</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
+                    <a class="nav-link" href="#project">Project</a>
                 </li>
 
                 <li class="nav-item">
@@ -81,63 +162,117 @@
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================================================
+     GAMES SECTION
+========================================================= -->
 
-<section id="home" class="hero-section py-5">
+<section id="games">
 
-    <div class="container">
+    <div class="games-bg"></div>
 
-        <div class="row align-items-center min-vh-75">
+    <div class="container-fluid">
 
-            <div class="col-lg-7">
+        <div class="game-card top-left"
+             data-bs-toggle="modal"
+             data-bs-target="#ghostGame">
 
-                <p class="text-primary fw-bold mb-2">
-                    HELLO, I'M
-                </p>
-
-                <h1 class="display-4 fw-bold">
-                    Ayesha Siddika Tisha
-                </h1>
-
-                <h3 class="text-secondary mb-3">
-                    Computer Science & Engineering Student
-                </h3>
-
-                <p class="lead">
-                    I am a Computer Science and Engineering student at
-                    Premier University, Chattogram, Bangladesh.
-                    I am interested in programming, web development,
-                    problem solving and learning new technologies.
-                </p>
-
-                <div class="mt-4">
-
-                    <a href="#contact"
-                       class="btn btn-primary btn-lg me-2">
-                        Contact Me
-                    </a>
-
-                    <a href="#projects"
-                       class="btn btn-outline-dark btn-lg">
-                        My Projects
-                    </a>
-
-                </div>
-
+            <div class="game-icon">
+                👻
             </div>
 
+            <h3>FIND THE GHOST</h3>
 
-            <div class="col-lg-5 text-center mt-5 mt-lg-0">
+            <p>
+                Find the room<br>
+                where the ghost hides.
+            </p>
 
-                <div class="profile-box">
+            <span class="play-game">
+                PLAY
+            </span>
 
-                    <img src="./photo.jpg.jpeg"
-     class="img-fluid rounded-circle shadow-lg profile-img"
-     alt="Ayesha Siddika Tisha">
+        </div>
 
-                </div>
 
+        <div class="game-card top-right"
+             data-bs-toggle="modal"
+             data-bs-target="#codeGame">
+
+            <div class="game-icon">
+                🔐
             </div>
+
+            <h3>CRACK THE CODE</h3>
+
+            <p>
+                Solve the sequence<br>
+                before time runs out.
+            </p>
+
+            <span class="play-game">
+                PLAY
+            </span>
+
+        </div>
+
+
+        <div class="games-center">
+
+            <div class="games-small">
+                YOU MADE IT THIS FAR
+            </div>
+
+            <h1>
+                G A M E S
+            </h1>
+
+            <p>
+                PLAY IF YOU DARE
+            </p>
+
+        </div>
+
+
+        <div class="game-card bottom-left"
+             data-bs-toggle="modal"
+             data-bs-target="#memoryGame">
+
+            <div class="game-icon">
+                🧠
+            </div>
+
+            <h3>CSE MEMORY</h3>
+
+            <p>
+                Match all the<br>
+                programming pairs.
+            </p>
+
+            <span class="play-game">
+                PLAY
+            </span>
+
+        </div>
+
+
+        <div class="game-card bottom-right"
+             data-bs-toggle="modal"
+             data-bs-target="#bugGame">
+
+            <div class="game-icon">
+                🐛
+            </div>
+
+            <h3>ESCAPE THE BUG</h3>
+
+            <p>
+                Catch the bug<br>
+                before it escapes.
+            </p>
+
+            <span class="play-game">
+                PLAY
+            </span>
 
         </div>
 
@@ -146,105 +281,64 @@
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =========================================================
+     GAME 1 — FIND THE GHOST
+========================================================= -->
 
-<section id="about" class="py-5 bg-light">
+<div
+    class="modal fade horror-modal"
+    id="ghostGame"
+    tabindex="-1"
+    aria-hidden="true"
+>
 
-    <div class="container">
+    <div class="modal-dialog modal-dialog-centered">
 
-        <h2 class="section-title text-center mb-5">
-            About Me
-        </h2>
+        <div class="modal-content">
 
-        <div class="row g-4">
+            <div class="modal-header">
 
-            <div class="col-lg-6">
+                <div>
+                    <small>HORROR GAME 01</small>
 
-                <div class="card h-100 shadow-sm border-0">
-
-                    <div class="card-body p-4">
-
-                        <h4 class="fw-bold mb-3">
-                            <i class="bi bi-person-circle text-primary"></i>
-                            Who Am I?
-                        </h4>
-
-                        <p>
-                            My name is <strong>Ayesha Siddika Tisha</strong>.
-                            I am studying Computer Science and Engineering
-                            at Premier University.
-                        </p>
-
-                        <p>
-                            I am interested in programming, web development
-                            and software engineering. I always try to learn
-                            new technologies and improve my technical skills.
-                        </p>
-
-                        <p class="mb-0">
-                            My goal is to become a skilled software developer
-                            and build useful technology-based projects.
-                        </p>
-
-                    </div>
-
+                    <h2>
+                        FIND THE GHOST
+                    </h2>
                 </div>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
 
             </div>
 
+            <div class="modal-body text-center">
 
-            <div class="col-lg-6">
+                <p class="game-instruction">
+                    One of these rooms contains a ghost.
+                    Choose carefully.
+                </p>
 
-                <div class="card h-100 shadow-sm border-0">
+                <div class="rooms-grid">
 
-                    <div class="card-body p-4">
+                    <button class="room-btn" data-room="1">01</button>
+                    <button class="room-btn" data-room="2">02</button>
+                    <button class="room-btn" data-room="3">03</button>
 
-                        <h4 class="fw-bold mb-3">
-                            <i class="bi bi-info-circle text-primary"></i>
-                            Personal Information
-                        </h4>
+                    <button class="room-btn" data-room="4">04</button>
+                    <button class="room-btn" data-room="5">05</button>
+                    <button class="room-btn" data-room="6">06</button>
 
-                        <div class="table-responsive">
-
-                            <table class="table table-hover">
-
-                                <tr>
-                                    <th>Name</th>
-                                    <td>Ayesha Siddika Tisha</td>
-                                </tr>
-
-                                <tr>
-                                    <th>Department</th>
-                                    <td>Computer Science & Engineering</td>
-                                </tr>
-
-                                <tr>
-                                    <th>University</th>
-                                    <td>Premier University</td>
-                                </tr>
-
-                                <tr>
-                                    <th>Email</th>
-                                    <td>shiddikatisha054@gmail.com</td>
-                                </tr>
-
-                                <tr>
-                                    <th>Phone</th>
-                                    <td>01897811450</td>
-                                </tr>
-
-                                <tr>
-                                    <th>Location</th>
-                                    <td>Chattogram, Bangladesh</td>
-                                </tr>
-
-                            </table>
-
-                        </div>
-
-                    </div>
+                    <button class="room-btn" data-room="7">07</button>
+                    <button class="room-btn" data-room="8">08</button>
+                    <button class="room-btn" data-room="9">09</button>
 
                 </div>
+
+                <div id="ghostResult" class="game-result"></div>
 
             </div>
 
@@ -252,45 +346,472 @@
 
     </div>
 
+</div>
+
+
+<!-- =========================================================
+     GAME 2 — CRACK THE CODE
+========================================================= -->
+
+<div
+    class="modal fade horror-modal"
+    id="codeGame"
+    tabindex="-1"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <small>HORROR GAME 02</small>
+
+                    <h2>
+                        CRACK THE CODE
+                    </h2>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+
+            </div>
+
+            <div class="modal-body text-center">
+
+                <p class="game-instruction">
+                    Complete the sequence:
+                </p>
+
+                <div class="code-sequence">
+                    2 &nbsp; 4 &nbsp; 8 &nbsp; 16 &nbsp; ?
+                </div>
+
+                <div class="code-input-area">
+
+                    <input
+                        type="number"
+                        id="codeAnswer"
+                        class="form-control"
+                        placeholder="ENTER CODE"
+                    >
+
+                    <button
+                        class="btn horror-btn"
+                        onclick="checkCode()"
+                    >
+                        CRACK
+                    </button>
+
+                </div>
+
+                <div id="codeResult" class="game-result"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     GAME 3 — CSE MEMORY
+========================================================= -->
+
+<div
+    class="modal fade horror-modal"
+    id="memoryGame"
+    tabindex="-1"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <small>HORROR GAME 03</small>
+
+                    <h2>
+                        CSE MEMORY
+                    </h2>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+
+            </div>
+
+            <div class="modal-body text-center">
+
+                <p class="game-instruction">
+                    Match all programming pairs.
+                </p>
+
+                <div id="memoryGrid" class="memory-grid"></div>
+
+                <div id="memoryResult" class="game-result"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     GAME 4 — ESCAPE THE BUG
+========================================================= -->
+
+<div
+    class="modal fade horror-modal"
+    id="bugGame"
+    tabindex="-1"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <small>HORROR GAME 04</small>
+
+                    <h2>
+                        ESCAPE THE BUG
+                    </h2>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+
+            </div>
+
+            <div class="modal-body text-center">
+
+                <p class="game-instruction">
+                    Catch the bug 10 times.
+                </p>
+
+                <div class="bug-score-text">
+                    BUGS CAUGHT:
+                    <span id="bugScore">0</span>
+                    / 10
+                </div>
+
+                <div id="bugArea">
+
+                    <button id="bug">
+                        🐛
+                    </button>
+
+                </div>
+
+                <div id="bugResult" class="game-result"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     JOURNEY INTRO
+========================================================= -->
+
+<section id="journey">
+
+    <div class="journey-overlay"></div>
+
+    <div class="container text-center journey-content">
+
+        <div class="journey-small">
+            THE GAMES ARE OVER
+        </div>
+
+        <h1>
+            THE JOURNEY
+        </h1>
+
+        <p>
+            Every road has a beginning.
+            <br>
+            Every story has a destination.
+        </p>
+
+        <div class="journey-line"></div>
+
+        <span>
+            SCROLL TO CONTINUE
+        </span>
+
+    </div>
+
 </section>
 
 
-<!-- ================= EDUCATION ================= -->
+<!-- =========================================================
+     MAIN HORROR ROAD
+========================================================= -->
 
-<section id="education" class="py-5">
+<main id="road">
 
-    <div class="container">
+    <!-- Moon -->
+    <div class="moon"></div>
 
-        <h2 class="section-title text-center mb-5">
-            Education
-        </h2>
+    <!-- Road lighting -->
+    <div class="road-light light-one"></div>
+    <div class="road-light light-two"></div>
+    <div class="road-light light-three"></div>
+    <div class="road-light light-four"></div>
 
-        <div class="row g-4">
+    <!-- Fog -->
+    <div class="fog one"></div>
+    <div class="fog two"></div>
+    <div class="fog three"></div>
 
-            <div class="col-md-4">
+    <!-- Road -->
+    <div class="road-line"></div>
+    <div class="road-center"></div>
 
-                <div class="card education-card h-100 shadow-sm">
 
-                    <div class="card-body">
+    <!-- =====================================================
+         HAUNTED HOUSES
+    ====================================================== -->
 
-                        <i class="bi bi-mortarboard-fill fs-1 text-primary"></i>
+    <div class="house h1">
+        <div class="house-roof"></div>
+        <div class="house-floor second"></div>
+        <div class="house-window w1 flicker"></div>
+        <div class="house-window w2"></div>
+        <div class="house-window w3 broken"></div>
+        <div class="house-door"></div>
+        <div class="house-gate"></div>
+    </div>
 
-                        <h4 class="mt-3">
-                            B.Sc. in CSE
-                        </h4>
 
-                        <p>
-                            <strong>University:</strong>
-                            Premier University
-                        </p>
+    <div class="house h2">
+        <div class="house-roof"></div>
+        <div class="house-floor second"></div>
+        <div class="house-window w1"></div>
+        <div class="house-window w2 flicker"></div>
+        <div class="house-window w3 broken"></div>
+        <div class="house-door"></div>
+        <div class="house-gate"></div>
+    </div>
 
-                        <p>
-                            <strong>Location:</strong>
-                            Chattogram, Bangladesh
-                        </p>
 
-                        <span class="badge text-bg-primary">
-                            Running
+    <div class="house h3">
+        <div class="house-roof"></div>
+        <div class="house-floor second"></div>
+        <div class="house-window w1 broken"></div>
+        <div class="house-window w2"></div>
+        <div class="house-window w3 flicker"></div>
+        <div class="house-window w4"></div>
+        <div class="house-door"></div>
+        <div class="house-gate"></div>
+    </div>
+
+
+    <div class="house h4">
+        <div class="house-roof"></div>
+        <div class="house-floor second"></div>
+        <div class="house-window w1 flicker"></div>
+        <div class="house-window w2 broken"></div>
+        <div class="house-window w3"></div>
+        <div class="house-door"></div>
+        <div class="house-gate"></div>
+    </div>
+
+
+    <div class="house h5">
+        <div class="house-roof"></div>
+        <div class="house-floor second"></div>
+        <div class="house-window w1"></div>
+        <div class="house-window w2 flicker"></div>
+        <div class="house-window w3 broken"></div>
+        <div class="house-window w4"></div>
+        <div class="house-door"></div>
+        <div class="house-gate"></div>
+    </div>
+
+
+    <div class="house h6">
+        <div class="house-roof"></div>
+        <div class="house-floor second"></div>
+        <div class="house-window w1 broken"></div>
+        <div class="house-window w2 flicker"></div>
+        <div class="house-window w3"></div>
+        <div class="house-door"></div>
+        <div class="house-gate"></div>
+    </div>
+
+
+    <div class="house h7">
+        <div class="house-roof"></div>
+        <div class="house-floor second"></div>
+        <div class="house-window w1 flicker"></div>
+        <div class="house-window w2"></div>
+        <div class="house-window w3 broken"></div>
+        <div class="house-window w4"></div>
+        <div class="house-door"></div>
+        <div class="house-gate"></div>
+    </div>
+
+
+    <div class="house h8">
+        <div class="house-roof"></div>
+        <div class="house-floor second"></div>
+        <div class="house-window w1"></div>
+        <div class="house-window w2 broken"></div>
+        <div class="house-window w3 flicker"></div>
+        <div class="house-door"></div>
+        <div class="house-gate"></div>
+    </div>
+
+
+    <div class="house h9">
+        <div class="house-roof"></div>
+        <div class="house-floor second"></div>
+        <div class="house-window w1 flicker"></div>
+        <div class="house-window w2 broken"></div>
+        <div class="house-window w3"></div>
+        <div class="house-window w4 broken"></div>
+        <div class="house-door"></div>
+        <div class="house-gate"></div>
+    </div>
+
+
+    <!-- =====================================================
+         DEAD TREES
+    ====================================================== -->
+
+    <div class="tree t1"></div>
+    <div class="tree t2"></div>
+    <div class="tree t3"></div>
+    <div class="tree t4"></div>
+    <div class="tree t5"></div>
+    <div class="tree t6"></div>
+    <div class="tree t7"></div>
+    <div class="tree t8"></div>
+
+
+    <!-- =====================================================
+         GHOST TRAVELER
+    ====================================================== -->
+
+    <div id="ghostTraveler">
+
+        <div class="ghost">
+
+            <div class="ghost-body">
+
+                <div class="eye eye1"></div>
+                <div class="eye eye2"></div>
+
+                <div class="mouth"></div>
+
+                <div class="arm left"></div>
+                <div class="arm right"></div>
+
+            </div>
+
+        </div>
+
+        <div class="ghost-hi">
+            HI 👋
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section id="about" class="portfolio-section">
+
+        <div class="container">
+
+            <div class="section-number">
+                01
+            </div>
+
+            <div class="section-label">
+                CHAPTER ONE
+            </div>
+
+            <h2>
+                ABOUT
+            </h2>
+
+            <div class="section-line"></div>
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-7">
+
+                    <p class="big-text">
+                        I am
+                        <strong>
+                            Ayesha Siddika Tisha
+                        </strong>,
+                        a Computer Science & Engineering student at
+                        Premier University, Chattogram.
+                    </p>
+
+                    <p>
+                        I am interested in programming, web development,
+                        software engineering, problem solving and learning
+                        new technologies.
+                    </p>
+
+                    <p>
+                        My goal is to become a skilled software developer
+                        and build useful technology projects.
+                    </p>
+
+                </div>
+
+                <div class="col-lg-5">
+
+                    <div class="quote-box">
+
+                        <span>
+                            "THE CODE IS<br>
+                            ALWAYS<br>
+                            WATCHING."
                         </span>
 
                     </div>
@@ -299,294 +820,804 @@
 
             </div>
 
+        </div>
 
-            <div class="col-md-4">
+    </section>
 
-                <div class="card education-card h-100 shadow-sm">
 
-                    <div class="card-body">
+    <!-- =====================================================
+         PERSONAL INFO
+    ====================================================== -->
 
-                        <i class="bi bi-book-fill fs-1 text-primary"></i>
+    <section id="personal" class="portfolio-section">
 
-                        <h4 class="mt-3">
-                            Higher Secondary Certificate
-                        </h4>
+        <div class="container">
+
+            <div class="section-number">
+                02
+            </div>
+
+            <div class="section-label">
+                CHAPTER TWO
+            </div>
+
+            <h2>
+                PERSONAL INFO
+            </h2>
+
+            <div class="section-line"></div>
+
+            <div class="personal-grid">
+
+                <div class="info-card">
+
+                    <i class="bi bi-person"></i>
+
+                    <span>
+                        NAME
+                    </span>
+
+                    <strong>
+                        Ayesha Siddika Tisha
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <span>
+                        DEPARTMENT
+                    </span>
+
+                    <strong>
+                        Computer Science & Engineering
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="bi bi-building"></i>
+
+                    <span>
+                        UNIVERSITY
+                    </span>
+
+                    <strong>
+                        Premier University, Chattogram
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="bi bi-envelope"></i>
+
+                    <span>
+                        EMAIL
+                    </span>
+
+                    <strong>
+                        shiddikatisha054@gmail.com
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="bi bi-telephone"></i>
+
+                    <span>
+                        PHONE
+                    </span>
+
+                    <strong>
+                        01897811450
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="bi bi-geo-alt"></i>
+
+                    <span>
+                        LOCATION
+                    </span>
+
+                    <strong>
+                        Chattogram, Bangladesh
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EDUCATION
+    ====================================================== -->
+
+    <section id="education" class="portfolio-section">
+
+        <div class="container">
+
+            <div class="section-number">
+                03
+            </div>
+
+            <div class="section-label">
+                CHAPTER THREE
+            </div>
+
+            <h2>
+                EDUCATION
+            </h2>
+
+            <div class="section-line"></div>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <span>
+                            CURRENT
+                        </span>
+
+                        <h3>
+                            B.Sc. in Computer Science & Engineering
+                        </h3>
 
                         <p>
-                            <strong>College:</strong>
+                            Premier University, Chattogram
+                        </p>
+
+                        <small>
+                            Running
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <span>
+                            2023
+                        </span>
+
+                        <h3>
+                            Higher Secondary Certificate
+                        </h3>
+
+                        <p>
                             Mirsarai College, Chattogram
                         </p>
 
-                        <p>
-                            <strong>Passing Year:</strong>
-                            2023
-                        </p>
-
                     </div>
 
                 </div>
 
-            </div>
 
+                <div class="timeline-item">
 
-            <div class="col-md-4">
+                    <div class="timeline-dot"></div>
 
-                <div class="card education-card h-100 shadow-sm">
+                    <div class="timeline-content">
 
-                    <div class="card-body">
+                        <span>
+                            2021
+                        </span>
 
-                        <i class="bi bi-building-fill fs-1 text-primary"></i>
-
-                        <h4 class="mt-3">
+                        <h3>
                             Secondary School Certificate
-                        </h4>
+                        </h3>
 
                         <p>
-                            <strong>School:</strong>
                             Khoiyachora High School
                         </p>
 
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TECHNICAL SKILLS
+    ====================================================== -->
+
+    <section id="technical" class="portfolio-section">
+
+        <div class="container">
+
+            <div class="section-number">
+                04
+            </div>
+
+            <div class="section-label">
+                CHAPTER FOUR
+            </div>
+
+            <h2>
+                TECHNICAL SKILLS
+            </h2>
+
+            <div class="section-line"></div>
+
+            <div class="skills-container">
+
+                <div class="skill-item">
+
+                    <div class="skill-header">
+
+                        <span>
+                            C
+                        </span>
+
+                        <span>
+                            75%
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress c"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <div class="skill-header">
+
+                        <span>
+                            C++
+                        </span>
+
+                        <span>
+                            70%
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress cpp"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <div class="skill-header">
+
+                        <span>
+                            JAVA
+                        </span>
+
+                        <span>
+                            65%
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress java"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <div class="skill-header">
+
+                        <span>
+                            HTML & CSS
+                        </span>
+
+                        <span>
+                            80%
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress htmlcss"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <div class="skill-header">
+
+                        <span>
+                            BOOTSTRAP
+                        </span>
+
+                        <span>
+                            75%
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress bootstrap"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         OTHER SKILLS
+    ====================================================== -->
+
+    <section id="other" class="portfolio-section">
+
+        <div class="container">
+
+            <div class="section-number">
+                05
+            </div>
+
+            <div class="section-label">
+                CHAPTER FIVE
+            </div>
+
+            <h2>
+                OTHER SKILLS
+            </h2>
+
+            <div class="section-line"></div>
+
+            <div class="other-skills-grid">
+
+                <div class="other-skill">
+                    <i class="bi bi-lightbulb"></i>
+                    <span>Problem Solving</span>
+                </div>
+
+                <div class="other-skill">
+                    <i class="bi bi-file-earmark-word"></i>
+                    <span>Microsoft Word</span>
+                </div>
+
+                <div class="other-skill">
+                    <i class="bi bi-file-earmark-slides"></i>
+                    <span>PowerPoint</span>
+                </div>
+
+                <div class="other-skill">
+                    <i class="bi bi-palette"></i>
+                    <span>Canva</span>
+                </div>
+
+                <div class="other-skill">
+                    <i class="bi bi-chat-dots"></i>
+                    <span>Communication</span>
+                </div>
+
+                <div class="other-skill">
+                    <i class="bi bi-people"></i>
+                    <span>Teamwork</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROJECT
+    ====================================================== -->
+
+    <section id="project" class="portfolio-section">
+
+        <div class="container">
+
+            <div class="section-number">
+                06
+            </div>
+
+            <div class="section-label">
+                CHAPTER SIX
+            </div>
+
+            <h2>
+                PROJECT
+            </h2>
+
+            <div class="section-line"></div>
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <div class="project-content">
+
+                    <span class="project-type">
+                        ACADEMIC PROJECT
+                    </span>
+
+                    <h3>
+                        Academic Portfolio Website
+                    </h3>
+
+                    <p>
+                        A personal academic portfolio website designed
+                        to present my education, technical skills,
+                        personal information, social profiles and
+                        contact details in an interactive way.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Bootstrap</span>
+                        <span>JavaScript</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SOCIAL
+    ====================================================== -->
+
+    <section id="social" class="portfolio-section">
+
+        <div class="container">
+
+            <div class="section-number">
+                07
+            </div>
+
+            <div class="section-label">
+                CHAPTER SEVEN
+            </div>
+
+            <h2>
+                SOCIAL
+            </h2>
+
+            <div class="section-line"></div>
+
+            <div class="social-grid">
+
+                <a
+                    href="https://linkedin.com/"
+                    target="_blank"
+                    class="social-card"
+                >
+
+                    <i class="bi bi-linkedin"></i>
+
+                    <span>
+                        LINKEDIN
+                    </span>
+
+                    <small>
+                        CONNECT WITH ME
+                    </small>
+
+                </a>
+
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    class="social-card"
+                >
+
+                    <i class="bi bi-github"></i>
+
+                    <span>
+                        GITHUB
+                    </span>
+
+                    <small>
+                        SEE MY CODE
+                    </small>
+
+                </a>
+
+
+                <a
+                    href="https://instagram.com/"
+                    target="_blank"
+                    class="social-card"
+                >
+
+                    <i class="bi bi-instagram"></i>
+
+                    <span>
+                        INSTAGRAM
+                    </span>
+
+                    <small>
+                        FOLLOW MY JOURNEY
+                    </small>
+
+                </a>
+
+
+                <a
+                    href="https://facebook.com/"
+                    target="_blank"
+                    class="social-card"
+                >
+
+                    <i class="bi bi-facebook"></i>
+
+                    <span>
+                        FACEBOOK
+                    </span>
+
+                    <small>
+                        FIND ME HERE
+                    </small>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT ME
+    ====================================================== -->
+
+    <section id="contact" class="portfolio-section contact-section">
+
+        <div class="container">
+
+            <div class="section-number">
+                08
+            </div>
+
+            <div class="section-label">
+                FINAL STOP
+            </div>
+
+            <h2>
+                CONTACT ME
+            </h2>
+
+            <div class="section-line"></div>
+
+            <div class="row g-5">
+
+                <!-- Contact information -->
+
+                <div class="col-lg-5">
+
+                    <div class="contact-intro">
+
+                        <p class="big-text">
+                            Still here?
+                            <br>
+                            <strong>
+                                Let's talk.
+                            </strong>
+                        </p>
+
                         <p>
-                            <strong>Passing Year:</strong>
-                            2021
+                            If you want to connect, collaborate or simply
+                            say hello, send me a message.
                         </p>
 
                     </div>
 
-                </div>
 
-            </div>
+                    <div class="contact-details">
 
-        </div>
+                        <a
+                            href="mailto:shiddikatisha054@gmail.com"
+                            class="contact-detail"
+                        >
 
-    </div>
+                            <i class="bi bi-envelope"></i>
 
-</section>
+                            <div>
 
+                                <span>
+                                    EMAIL
+                                </span>
 
-<!-- ================= SKILLS ================= -->
+                                <strong>
+                                    shiddikatisha054@gmail.com
+                                </strong>
 
-<section id="skills" class="py-5 bg-light">
-
-    <div class="container">
-
-        <h2 class="section-title text-center mb-5">
-            Technical Skills
-        </h2>
-
-        <div class="row g-4">
-
-            <div class="col-md-6">
-
-                <div class="card shadow-sm border-0">
-
-                    <div class="card-body p-4">
-
-                        <h5 class="fw-bold">
-                            Programming & Web
-                        </h5>
-
-                        <p class="mb-1">C Programming</p>
-
-                        <div class="progress mb-3">
-                            <div class="progress-bar"
-                                 style="width: 75%">
-                                75%
                             </div>
-                        </div>
+
+                        </a>
 
 
-                        <p class="mb-1">C++</p>
+                        <a
+                            href="tel:01897811450"
+                            class="contact-detail"
+                        >
 
-                        <div class="progress mb-3">
-                            <div class="progress-bar"
-                                 style="width: 70%">
-                                70%
+                            <i class="bi bi-telephone"></i>
+
+                            <div>
+
+                                <span>
+                                    PHONE
+                                </span>
+
+                                <strong>
+                                    01897811450
+                                </strong>
+
                             </div>
-                        </div>
+
+                        </a>
 
 
-                        <p class="mb-1">Java</p>
+                        <a
+                            href="https://wa.me/8801897811450"
+                            target="_blank"
+                            class="contact-detail"
+                        >
 
-                        <div class="progress mb-3">
-                            <div class="progress-bar"
-                                 style="width: 65%">
-                                65%
+                            <i class="bi bi-whatsapp"></i>
+
+                            <div>
+
+                                <span>
+                                    WHATSAPP
+                                </span>
+
+                                <strong>
+                                    MESSAGE ME
+                                </strong>
+
                             </div>
-                        </div>
 
-
-                        <p class="mb-1">HTML & CSS</p>
-
-                        <div class="progress mb-3">
-                            <div class="progress-bar"
-                                 style="width: 80%">
-                                80%
-                            </div>
-                        </div>
-
-
-                        <p class="mb-1">Bootstrap</p>
-
-                        <div class="progress">
-                            <div class="progress-bar"
-                                 style="width: 75%">
-                                75%
-                            </div>
-                        </div>
+                        </a>
 
                     </div>
 
                 </div>
 
-            </div>
 
+                <!-- Contact form -->
 
-            <div class="col-md-6">
+                <div class="col-lg-7">
 
-                <div class="card shadow-sm border-0">
+                    <form id="contactForm" class="contact-form">
 
-                    <div class="card-body p-4">
+                        <div class="form-group">
 
-                        <h5 class="fw-bold mb-4">
-                            Other Skills
-                        </h5>
+                            <label for="name">
+                                YOUR NAME
+                            </label>
 
-                        <div class="d-flex flex-wrap gap-2">
-
-                            <span class="badge text-bg-primary p-2">
-                                Problem Solving
-                            </span>
-
-                            <span class="badge text-bg-secondary p-2">
-                                Microsoft Word
-                            </span>
-
-                            <span class="badge text-bg-success p-2">
-                                PowerPoint
-                            </span>
-
-                            <span class="badge text-bg-danger p-2">
-                                Canva
-                            </span>
-
-                            <span class="badge text-bg-warning p-2">
-                                Communication
-                            </span>
-
-                            <span class="badge text-bg-info p-2">
-                                Teamwork
-                            </span>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter Your Name"
+                                required
+                            >
 
                         </div>
 
-                    </div>
 
-                </div>
+                        <div class="form-group">
 
-            </div>
+                            <label for="email">
+                                YOUR EMAIL
+                            </label>
 
-        </div>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter Your Email"
+                                required
+                            >
 
-    </div>
-
-</section>
-
-
-<!-- ================= PROJECTS ================= -->
-
-<section id="projects" class="py-5">
-
-    <div class="container">
-
-        <h2 class="section-title text-center mb-5">
-            Academic Projects
-        </h2>
-
-        <div class="row g-4">
+                        </div>
 
 
-            <div class="col-md-4">
+                        <div class="form-group">
 
-                <div class="card project-card h-100 shadow-sm">
+                            <label for="subject">
+                                SUBJECT
+                            </label>
 
-                    <div class="card-body">
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                placeholder="Enter Subject"
+                                required
+                            >
 
-                        <i class="bi bi-globe2 fs-1 text-primary"></i>
+                        </div>
 
-                        <h5 class="card-title mt-3">
-                            Academic Portfolio Website
-                        </h5>
 
-                        <p class="card-text">
-                            A responsive academic portfolio website
-                            created using HTML, CSS and Bootstrap.
-                        </p>
+                        <div class="form-group">
 
-                        <button class="btn btn-primary"
-                                onclick="showProject('Academic Portfolio Website')">
-                            View Project
+                            <label for="message">
+                                MESSAGE
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="6"
+                                placeholder="Write your message..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="send-btn"
+                        >
+
+                            SEND MESSAGE
+
+                            <i class="bi bi-arrow-right"></i>
+
                         </button>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-4">
-
-                <div class="card project-card h-100 shadow-sm">
-
-                    <div class="card-body">
-
-                        <i class="bi bi-person-plus-fill fs-1 text-success"></i>
-
-                        <h5 class="card-title mt-3">
-                            Student Registration Form
-                        </h5>
-
-                        <p class="card-text">
-                            A simple student registration form designed
-                            using HTML and Bootstrap.
-                        </p>
-
-                        <button class="btn btn-success"
-                                onclick="showProject('Student Registration Form')">
-                            View Project
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-4">
-
-                <div class="card project-card h-100 shadow-sm">
-
-                    <div class="card-body">
-
-                        <i class="bi bi-file-earmark-person-fill fs-1 text-dark"></i>
-
-                        <h5 class="card-title mt-3">
-                            Personal Resume Website
-                        </h5>
-
-                        <p class="card-text">
-                            A beginner-friendly personal resume website
-                            created using HTML and Bootstrap.
-                        </p>
-
-                        <button class="btn btn-dark"
-                                onclick="showProject('Personal Resume Website')">
-                            View Project
-                        </button>
-
-                    </div>
+                    </form>
 
                 </div>
 
@@ -594,155 +1625,53 @@
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ================= SOCIAL ================= -->
-
-<section id="social" class="py-5 bg-light">
-
-    <div class="container">
-
-        <h2 class="section-title text-center mb-4">
-            Social Media
-        </h2>
-
-        <div class="text-center">
-
-            <p>
-                Connect with me on social media.
-            </p>
-
-            <a href="https://facebook.com/"
-               target="_blank"
-               class="btn btn-primary m-2">
-
-                <i class="bi bi-facebook"></i>
-                Facebook
-
-            </a>
+</main>
 
 
-            <a href="https://instagram.com/"
-               target="_blank"
-               class="btn btn-danger m-2">
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
-                <i class="bi bi-instagram"></i>
-                Instagram
+<footer>
 
-            </a>
+    <div class="container text-center">
 
-
-            <a href="https://linkedin.com/"
-               target="_blank"
-               class="btn btn-info m-2">
-
-                <i class="bi bi-linkedin"></i>
-                LinkedIn
-
-            </a>
-
-
-            <a href="https://github.com/"
-               target="_blank"
-               class="btn btn-dark m-2">
-
-                <i class="bi bi-github"></i>
-                GitHub
-
-            </a>
-
+        <div class="footer-logo">
+            TISHA<span>.</span>
         </div>
 
+        <p>
+            A Computer Science & Engineering Student
+        </p>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © 2026 Ayesha Siddika Tisha. All Rights Reserved.
+        </small>
+
     </div>
 
-</section>
+</footer>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
 
-<section id="contact" class="py-5">
-
-    <div class="container">
-
-        <h2 class="section-title text-center mb-5">
-            Contact Me
-        </h2>
-
-        <div class="row justify-content-center">
-
-            <div class="col-lg-8">
-
-                <div class="card shadow border-0">
-
-                    <div class="card-body p-4">
-
-                        <form id="contactForm">
-
-                            <div class="mb-3">
-
-                                <label class="form-label">
-                                    Full Name
-                                </label>
-
-                                <input type="text"
-                                       id="name"
-                                       class="form-control"
-                                       placeholder="Enter your name"
-                                       required>
-
-                            </div>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
 
 
-                            <div class="mb-3">
+<!-- =========================================================
+     MAIN JAVASCRIPT
+========================================================= -->
 
-                                <label class="form-label">
-                                    Email
-                                </label>
+<script src="script.js"></script>
 
-                                <input type="email"
-                                       id="email"
-                                       class="form-control"
-                                       placeholder="Enter your email"
-                                       required>
-
-                            </div>
-
-
-                            <div class="mb-3">
-
-                                <label class="form-label">
-                                    Subject
-                                </label>
-
-                                <input type="text"
-                                       class="form-control"
-                                       placeholder="Enter subject"
-                                       required>
-
-                            </div>
-
-
-                            <div class="mb-3">
-
-                                <label class="form-label">
-                                    Message
-                                </label>
-
-                                <textarea class="form-control"
-                                          rows="5"
-                                          placeholder="Write your message"
-                                          required></textarea>
-
-                            </div>
-
-
-                            <button type="submit"
-                                    class="btn btn-primary w-100">
-
-                                <i class="bi bi-send"></i>
-                                Send Message
-
-                            </button>
+</body>
+</html>

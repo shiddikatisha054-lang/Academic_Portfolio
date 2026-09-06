@@ -1,58 +1,2109 @@
+```css
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    background: #030405;
+    color: #e8e8e8;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
 }
 
-.min-vh-75 {
-    min-height: 75vh;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.hero-section {
-    background: linear-gradient(135deg, #f8f9fa, #e9f2ff);
+button,
+input,
+textarea {
+    font-family: inherit;
 }
 
-.profile-img {
-width: 270px;
-    height: 270px;
-    object-fit: cover;
-    object-position: 65% 30%;
-    border: 8px solid white;
-    border-radius: 50%;
-
+::selection {
+    background: #8d0000;
+    color: #fff;
 }
 
-.section-title {
-    font-weight: 700;
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.horror-navbar {
+    background: rgba(3, 4, 5, 0.72);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 15px 0;
+    z-index: 9999;
+}
+
+.navbar-brand {
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.navbar-brand span,
+.footer-logo span {
+    color: #9d0000;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.65) !important;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    margin-left: 22px;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+}
+
+
+/* =========================================================
+   WELCOME SCREEN
+========================================================= */
+
+#welcomeScreen {
+    min-height: 100vh;
+    height: 100vh;
     position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at center, rgba(45, 0, 0, 0.22), transparent 42%),
+        linear-gradient(#020304, #050607);
 }
 
-.section-title::after {
+#welcomeScreen::before {
     content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: #0d6efd;
-    margin: 12px auto 0;
-    border-radius: 5px;
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 3px,
+            rgba(255, 255, 255, 0.012) 4px
+        );
+    pointer-events: none;
 }
 
-.education-card,
-.project-card {
+.welcome-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+}
+
+.welcome-small {
+    font-size: 0.7rem;
+    letter-spacing: 7px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 25px;
+    animation: fadeIn 2s ease forwards;
+}
+
+.welcome-title {
+    font-family: "Creepster", cursive;
+    font-size: clamp(5rem, 15vw, 13rem);
+    font-weight: 400;
+    line-height: 0.85;
+    letter-spacing: 4px;
+    color: #f3f3f3;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.08),
+        0 15px 35px rgba(0, 0, 0, 0.8);
+}
+
+.blood-letter {
+    position: relative;
+    display: inline-block;
+}
+
+.blood-letter i {
+    position: absolute;
+    display: block;
+    width: 7px;
+    height: 20px;
+    bottom: -18px;
+    left: 48%;
+    background: #a50000;
+    border-radius: 0 0 50% 50%;
+    box-shadow: 0 3px 10px rgba(150, 0, 0, 0.7);
+    animation: bloodDrip 2.5s infinite ease-in;
+}
+
+.blood-letter:nth-child(1) i {
+    height: 35px;
+    animation-delay: 0.2s;
+}
+
+.blood-letter:nth-child(2) i {
+    height: 20px;
+    animation-delay: 1s;
+}
+
+.blood-letter:nth-child(3) i {
+    height: 42px;
+    animation-delay: 0.5s;
+}
+
+.blood-letter:nth-child(4) i {
+    height: 18px;
+    animation-delay: 1.4s;
+}
+
+.blood-letter:nth-child(5) i {
+    height: 30px;
+    animation-delay: 0.8s;
+}
+
+.blood-letter:nth-child(6) i {
+    height: 48px;
+    animation-delay: 1.2s;
+}
+
+.blood-letter:nth-child(7) i {
+    height: 26px;
+    animation-delay: 0.4s;
+}
+
+.enter-text {
+    margin-top: 55px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    animation: pulseText 2s infinite;
+}
+
+.welcome-arrow {
+    margin-top: 18px;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.5);
+    animation: arrowDown 1.5s infinite;
+}
+
+
+/* Falling blood */
+
+.blood-rain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.blood-rain span {
+    position: absolute;
+    top: -80px;
+    font-size: 1.2rem;
+    animation: fallingBlood linear infinite;
+    opacity: 0.75;
+}
+
+.blood-rain span:nth-child(1) {
+    left: 12%;
+    animation-duration: 6s;
+}
+
+.blood-rain span:nth-child(2) {
+    left: 28%;
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+
+.blood-rain span:nth-child(3) {
+    left: 47%;
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
+
+.blood-rain span:nth-child(4) {
+    left: 67%;
+    animation-duration: 9s;
+    animation-delay: 0.5s;
+}
+
+.blood-rain span:nth-child(5) {
+    left: 81%;
+    animation-duration: 6.5s;
+    animation-delay: 1.5s;
+}
+
+.blood-rain span:nth-child(6) {
+    left: 93%;
+    animation-duration: 8.5s;
+    animation-delay: 3s;
+}
+
+
+/* =========================================================
+   GAMES
+========================================================= */
+
+#games {
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at center, rgba(55, 0, 0, 0.13), transparent 45%),
+        #030405;
+}
+
+#games::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent 49.9%,
+            rgba(255,255,255,0.025) 50%,
+            transparent 50.1%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 49.9%,
+            rgba(255,255,255,0.025) 50%,
+            transparent 50.1%
+        );
+    pointer-events: none;
+}
+
+.games-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 5;
+}
+
+.games-small {
+    font-size: 0.55rem;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 12px;
+}
+
+.games-center h1 {
+    font-family: "Creepster", cursive;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 400;
+    letter-spacing: 12px;
+    margin: 0;
+}
+
+.games-center p {
+    font-size: 0.7rem;
+    letter-spacing: 6px;
+    color: #8d0000;
+    margin-top: 15px;
+}
+
+.game-card {
+    position: absolute;
+    width: 260px;
+    min-height: 210px;
+    padding: 28px;
+    background: rgba(10, 11, 12, 0.72);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: 0.4s ease;
+    z-index: 4;
+}
+
+.game-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-left: 2px solid transparent;
     transition: 0.3s;
 }
 
-.education-card:hover,
-.project-card:hover {
-    transform: translateY(-8px);
+.game-card:hover {
+    transform: scale(1.04);
+    background: rgba(25, 8, 8, 0.85);
+    border-color: rgba(150,0,0,0.4);
 }
 
-.progress {
-    height: 22px;
+.game-card:hover::before {
+    border-left-color: #9d0000;
 }
+
+.game-card.top-left {
+    top: 12%;
+    left: 7%;
+}
+
+.game-card.top-right {
+    top: 12%;
+    right: 7%;
+}
+
+.game-card.bottom-left {
+    bottom: 12%;
+    left: 7%;
+}
+
+.game-card.bottom-right {
+    bottom: 12%;
+    right: 7%;
+}
+
+.game-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    filter: grayscale(0.4);
+}
+
+.game-card h3 {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.game-card p {
+    color: rgba(255,255,255,0.42);
+    font-size: 0.72rem;
+    line-height: 1.8;
+}
+
+.play-game {
+    display: inline-block;
+    margin-top: 8px;
+    color: #9d0000;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.horror-modal .modal-dialog {
+    max-width: 560px;
+}
+
+.horror-modal .modal-content {
+    background: #080a0b;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 0;
+    color: #fff;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+}
+
+.horror-modal .modal-header {
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 25px 30px;
+}
+
+.horror-modal .modal-header small {
+    color: #8d0000;
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+}
+
+.horror-modal h2 {
+    font-family: "Creepster", cursive;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-top: 7px;
+}
+
+.horror-modal .modal-body {
+    padding: 35px;
+}
+
+.game-instruction {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    margin-bottom: 25px;
+}
+
+
+/* Ghost rooms */
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 300px;
+    margin: auto;
+}
+
+.room-btn {
+    height: 70px;
+    background: #0d0f10;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.room-btn:hover {
+    background: #260808;
+    border-color: #900000;
+}
+
+.game-result {
+    min-height: 25px;
+    margin-top: 22px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: #b40000;
+}
+
+
+/* Code game */
+
+.code-sequence {
+    font-family: monospace;
+    font-size: 2rem;
+    letter-spacing: 6px;
+    margin: 30px 0;
+}
+
+.code-input-area {
+    display: flex;
+    gap: 10px;
+    max-width: 330px;
+    margin: auto;
+}
+
+.code-input-area input {
+    background: #111315;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+    border-radius: 0;
+}
+
+.code-input-area input:focus {
+    background: #111315;
+    color: #fff;
+    border-color: #8d0000;
+    box-shadow: none;
+}
+
+.horror-btn {
+    background: #700000;
+    color: #fff;
+    border: 0;
+    border-radius: 0;
+    padding: 10px 20px;
+}
+
+.horror-btn:hover {
+    background: #a00000;
+    color: #fff;
+}
+
+
+/* Memory */
+
+.memory-grid {
+    width: min(440px, 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 9px;
+}
+
+.memory-card {
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: #101214;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: 0.25s;
+}
+
+.memory-card:hover {
+    border-color: #700000;
+}
+
+.memory-card.flipped,
+.memory-card.matched {
+    background: #250909;
+}
+
+
+/* Bug */
+
+.bug-score-text {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+#bugScore {
+    color: #a00000;
+}
+
+#bugArea {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle, rgba(100,0,0,0.08), transparent 55%),
+        #050607;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+#bug {
+    position: absolute;
+    border: 0;
+    background: transparent;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+#journey {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at center, rgba(40,0,0,0.2), transparent 45%),
+        #020304;
+}
+
+.journey-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.9),
+            transparent 50%,
+            rgba(0,0,0,0.9)
+        );
+}
+
+.journey-content {
+    position: relative;
+    z-index: 2;
+}
+
+.journey-small {
+    font-size: 0.65rem;
+    letter-spacing: 6px;
+    color: #8d0000;
+    margin-bottom: 20px;
+}
+
+.journey-content h1 {
+    font-family: "Creepster", cursive;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 400;
+    letter-spacing: 8px;
+}
+
+.journey-content p {
+    margin-top: 25px;
+    color: rgba(255,255,255,0.4);
+    line-height: 2;
+}
+
+.journey-line {
+    width: 80px;
+    height: 1px;
+    background: #750000;
+    margin: 35px auto;
+}
+
+.journey-content > span {
+    font-size: 0.55rem;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.35);
+}
+
+
+/* =========================================================
+   MAIN ROAD
+========================================================= */
+
+#road {
+    position: relative;
+    min-height: 7600px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            90deg,
+            #010203 0%,
+            #07090b 25%,
+            #0b0d10 50%,
+            #07090b 75%,
+            #010203 100%
+        );
+}
+
+
+/* Moon */
+
+.moon {
+    position: fixed;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    top: 9%;
+    right: 11%;
+    background: #d4d5d1;
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.15),
+        0 0 80px rgba(255,255,255,0.06);
+    z-index: 1;
+    opacity: 0.55;
+}
+
+.moon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(0,0,0,0.13) 0 8px, transparent 9px),
+        radial-gradient(circle at 65% 60%, rgba(0,0,0,0.1) 0 12px, transparent 13px);
+}
+
+
+/* Road */
+
+.road-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 360px;
+    transform: translateX(-50%);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.75),
+            rgba(25,27,29,0.9) 50%,
+            rgba(0,0,0,0.75)
+        );
+    border-left: 1px solid rgba(255,255,255,0.025);
+    border-right: 1px solid rgba(255,255,255,0.025);
+    z-index: 1;
+}
+
+.road-center {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    min-height: 100%;
+    transform: translateX(-50%);
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(180,180,180,0.3) 0 60px,
+            transparent 60px 125px
+        );
+    z-index: 2;
+}
+
+
+/* Road lights */
+
+.road-light {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #870000;
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px #870000,
+        0 0 35px rgba(130,0,0,0.5);
+    z-index: 3;
+    animation: flickerLight 4s infinite;
+}
+
+.light-one {
+    top: 900px;
+    left: calc(50% - 200px);
+}
+
+.light-two {
+    top: 1900px;
+    right: calc(50% - 200px);
+    animation-delay: 1s;
+}
+
+.light-three {
+    top: 3300px;
+    left: calc(50% - 200px);
+    animation-delay: 2s;
+}
+
+.light-four {
+    top: 5200px;
+    right: calc(50% - 200px);
+    animation-delay: 0.5s;
+}
+
+
+/* =========================================================
+   FOG
+========================================================= */
+
+.fog {
+    position: fixed;
+    width: 700px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(180,190,195,0.035);
+    filter: blur(35px);
+    pointer-events: none;
+    z-index: 4;
+}
+
+.fog.one {
+    left: -250px;
+    top: 25%;
+    animation: fogMove 18s infinite alternate ease-in-out;
+}
+
+.fog.two {
+    right: -300px;
+    top: 55%;
+    animation: fogMove 23s infinite alternate-reverse ease-in-out;
+}
+
+.fog.three {
+    left: 20%;
+    top: 75%;
+    animation: fogMove 28s infinite alternate ease-in-out;
+}
+
+
+/* =========================================================
+   HAUNTED HOUSES
+========================================================= */
+
+.house {
+    position: absolute;
+    width: 280px;
+    height: 330px;
+    background: #080a0b;
+    border: 1px solid rgba(255,255,255,0.035);
+    z-index: 3;
+    opacity: 0.95;
+}
+
+.house::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.35);
+}
+
+.house-roof {
+    position: absolute;
+    top: -80px;
+    left: -25px;
+    width: 330px;
+    height: 120px;
+    background: #050607;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    border-bottom: 2px solid rgba(255,255,255,0.04);
+}
+
+.house-floor.second {
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    top: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.035);
+}
+
+.house-window {
+    position: absolute;
+    width: 42px;
+    height: 58px;
+    background: #0c0d0d;
+    border: 3px solid #191a1b;
+    box-shadow: inset 0 0 15px #000;
+}
+
+.house-window::before,
+.house-window::after {
+    content: "";
+    position: absolute;
+    background: #151617;
+}
+
+.house-window::before {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+}
+
+.house-window::after {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+}
+
+.house-window.w1 {
+    left: 40px;
+    top: 35px;
+}
+
+.house-window.w2 {
+    right: 40px;
+    top: 35px;
+}
+
+.house-window.w3 {
+    left: 55px;
+    bottom: 45px;
+}
+
+.house-window.w4 {
+    right: 55px;
+    bottom: 45px;
+}
+
+.house-window.flicker {
+    background: #3b0d0d;
+    box-shadow:
+        inset 0 0 20px #7c0000,
+        0 0 20px rgba(130,0,0,0.15);
+    animation: windowFlicker 5s infinite;
+}
+
+.house-window.broken {
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        88% 45%,
+        100% 100%,
+        55% 88%,
+        0 100%,
+        15% 50%
+    );
+}
+
+.house-door {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 105px;
+    background: #040505;
+    border: 2px solid #151617;
+}
+
+.house-door::after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 55%;
+    width: 5px;
+    height: 5px;
+    background: #5b0000;
+    border-radius: 50%;
+}
+
+.house-gate {
+    position: absolute;
+    bottom: -25px;
+    left: -45px;
+    width: 370px;
+    height: 25px;
+    border-top: 2px solid #161819;
+    border-bottom: 2px solid #111314;
+}
+
+
+/* House positions */
+
+.h1 {
+    top: 550px;
+    left: 5%;
+    transform: scale(0.95);
+}
+
+.h2 {
+    top: 1050px;
+    right: 4%;
+    transform: scale(0.85);
+}
+
+.h3 {
+    top: 1700px;
+    left: 3%;
+    transform: scale(0.9);
+}
+
+.h4 {
+    top: 2300px;
+    right: 5%;
+    transform: scale(1.05);
+}
+
+.h5 {
+    top: 3000px;
+    left: 4%;
+    transform: scale(0.82);
+}
+
+.h6 {
+    top: 3750px;
+    right: 3%;
+    transform: scale(0.92);
+}
+
+.h7 {
+    top: 4500px;
+    left: 5%;
+    transform: scale(1.02);
+}
+
+.h8 {
+    top: 5300px;
+    right: 4%;
+    transform: scale(0.84);
+}
+
+.h9 {
+    top: 6200px;
+    left: 3%;
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   DEAD TREES
+========================================================= */
+
+.tree {
+    position: absolute;
+    width: 12px;
+    height: 230px;
+    background: #080909;
+    z-index: 3;
+}
+
+.tree::before,
+.tree::after {
+    content: "";
+    position: absolute;
+    background: #080909;
+    transform-origin: bottom;
+}
+
+.tree::before {
+    width: 9px;
+    height: 130px;
+    left: -65px;
+    top: 20px;
+    transform: rotate(-35deg);
+}
+
+.tree::after {
+    width: 8px;
+    height: 110px;
+    left: 45px;
+    top: 50px;
+    transform: rotate(40deg);
+}
+
+.t1 {
+    top: 700px;
+    left: 20%;
+}
+
+.t2 {
+    top: 1200px;
+    right: 19%;
+}
+
+.t3 {
+    top: 1950px;
+    left: 17%;
+}
+
+.t4 {
+    top: 2700px;
+    right: 18%;
+}
+
+.t5 {
+    top: 3500px;
+    left: 20%;
+}
+
+.t6 {
+    top: 4200px;
+    right: 17%;
+}
+
+.t7 {
+    top: 5000px;
+    left: 18%;
+}
+
+.t8 {
+    top: 5850px;
+    right: 20%;
+}
+
+
+/* =========================================================
+   GHOST TRAVELER
+========================================================= */
+
+#ghostTraveler {
+    position: fixed;
+    left: 50%;
+    top: 58%;
+    width: 100px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    pointer-events: none;
+    transition: transform 0.15s linear;
+}
+
+
+/* Ghost */
+
+.ghost {
+    position: absolute;
+    width: 75px;
+    height: 100px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.ghost-body {
+    position: absolute;
+    width: 68px;
+    height: 88px;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    background: rgba(222, 226, 226, 0.88);
+    border-radius: 48% 48% 18% 18%;
+    box-shadow:
+        0 0 22px rgba(255,255,255,0.08),
+        0 10px 25px rgba(0,0,0,0.6);
+}
+
+.ghost-body::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: rgba(222,226,226,0.88);
+    clip-path: polygon(
+        0 0,
+        20% 45%,
+        38% 0,
+        57% 55%,
+        76% 0,
+        100% 45%,
+        100% 100%,
+        0 100%
+    );
+}
+
+.eye {
+    position: absolute;
+    top: 35px;
+    width: 8px;
+    height: 12px;
+    background: #080808;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.eye1 {
+    left: 19px;
+}
+
+.eye2 {
+    right: 19px;
+}
+
+.mouth {
+    position: absolute;
+    width: 18px;
+    height: 6px;
+    left: 50%;
+    top: 57px;
+    transform: translateX(-50%);
+    background: #111;
+    border-radius: 0 0 15px 15px;
+    z-index: 2;
+}
+
+.arm {
+    position: absolute;
+    width: 32px;
+    height: 12px;
+    top: 54px;
+    background: rgba(222,226,226,0.88);
+    border-radius: 50%;
+}
+
+.arm.left {
+    left: -22px;
+    transform: rotate(25deg);
+}
+
+.arm.right {
+    right: -22px;
+    transform: rotate(-25deg);
+}
+
+.ghost-hi {
+    position: absolute;
+    top: -35px;
+    right: -50px;
+    opacity: 0;
+    font-size: 0.75rem;
+    color: #fff;
+    white-space: nowrap;
+    transition: opacity 0.4s ease;
+}
+
+.ghost-hi.show {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PORTFOLIO SECTIONS
+========================================================= */
+
+.portfolio-section {
+    position: relative;
+    min-height: 700px;
+    width: min(1050px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 130px 0;
+    z-index: 8;
+}
+
+.section-number {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #700000;
+    letter-spacing: 3px;
+}
+
+.section-label {
+    margin-top: 12px;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.55rem;
+    letter-spacing: 5px;
+}
+
+.portfolio-section h2 {
+    margin-top: 15px;
+    font-family: "Creepster", cursive;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.section-line {
+    width: 75px;
+    height: 2px;
+    background: #790000;
+    margin: 25px 0 55px;
+}
+
+.portfolio-section p {
+    color: rgba(255,255,255,0.48);
+    line-height: 2;
+    font-size: 0.9rem;
+}
+
+.big-text {
+    font-size: clamp(1.2rem, 2vw, 1.7rem) !important;
+    color: rgba(255,255,255,0.75) !important;
+    line-height: 1.8 !important;
+}
+
+.big-text strong {
+    color: #fff;
+}
+
+
+/* Quote */
+
+.quote-box {
+    min-height: 270px;
+    border: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.25);
+}
+
+.quote-box span {
+    font-family: "Creepster", cursive;
+    font-size: 2rem;
+    line-height: 1.4;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+}
+
+
+/* =========================================================
+   PERSONAL INFO
+========================================================= */
+
+.personal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.info-card {
+    min-height: 145px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(4,5,6,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    border-color: rgba(130,0,0,0.5);
+    transform: translateY(-3px);
+}
+
+.info-card i {
+    color: #790000;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.info-card span {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+}
+
+.info-card strong {
+    margin-top: 7px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    padding-left: 45px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 9px;
+    width: 1px;
+    background: rgba(255,255,255,0.08);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 55px;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #08090a;
+    border: 2px solid #700000;
+    left: -45px;
+    top: 3px;
+    box-shadow: 0 0 15px rgba(120,0,0,0.4);
+}
+
+.timeline-content span {
+    font-size: 0.55rem;
+    letter-spacing: 4px;
+    color: #790000;
+}
+
+.timeline-content h3 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.timeline-content p {
+    margin: 8px 0 0;
+}
+
+.timeline-content small {
+    color: rgba(255,255,255,0.25);
+}
+
+
+/* =========================================================
+   TECHNICAL SKILLS
+========================================================= */
+
+.skills-container {
+    max-width: 800px;
+}
+
+.skill-item {
+    margin-bottom: 32px;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.skill-header span:last-child {
+    color: rgba(255,255,255,0.35);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 3px;
+    background: rgba(255,255,255,0.07);
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: #850000;
+    box-shadow: 0 0 12px rgba(130,0,0,0.4);
+}
+
+.skill-progress.c {
+    width: 75%;
+}
+
+.skill-progress.cpp {
+    width: 70%;
+}
+
+.skill-progress.java {
+    width: 65%;
+}
+
+.skill-progress.htmlcss {
+    width: 80%;
+}
+
+.skill-progress.bootstrap {
+    width: 75%;
+}
+
+
+/* =========================================================
+   OTHER SKILLS
+========================================================= */
+
+.other-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.other-skill {
+    min-height: 145px;
+    border: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: 0.3s;
+    background: rgba(4,5,6,0.45);
+}
+
+.other-skill:hover {
+    background: rgba(35,5,5,0.45);
+    border-color: rgba(130,0,0,0.4);
+    transform: translateY(-5px);
+}
+
+.other-skill i {
+    color: #790000;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.other-skill span {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.65);
+}
+
+
+/* =========================================================
+   PROJECT
+========================================================= */
+
+.project-card {
+    position: relative;
+    display: flex;
+    gap: 35px;
+    padding: 45px;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(5,6,7,0.65);
+    overflow: hidden;
+}
+
+.project-card::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: -80px;
+    bottom: -80px;
+    border-radius: 50%;
+    background: rgba(100,0,0,0.07);
+    filter: blur(20px);
+}
+
+.project-number {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #790000;
+    padding-top: 5px;
+}
+
+.project-type {
+    font-size: 0.55rem;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.3);
+}
+
+.project-content h3 {
+    margin: 15px 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.project-content p {
+    max-width: 700px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.project-tech span {
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+}
+
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.social-card {
+    min-height: 200px;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(4,5,6,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 0.35s;
+}
+
+.social-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(130,0,0,0.45);
+    background: rgba(30,5,5,0.5);
+}
+
+.social-card i {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #790000;
+}
+
+.social-card span {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+}
+
+.social-card small {
+    margin-top: 10px;
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.25);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section {
+    padding-bottom: 180px;
+}
+
+.contact-intro p {
+    max-width: 500px;
+}
+
+.contact-details {
+    margin-top: 40px;
+}
+
+.contact-detail {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.contact-detail i {
+    color: #790000;
+    font-size: 1.1rem;
+}
+
+.contact-detail div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-detail span {
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+}
+
+.contact-detail strong {
+    margin-top: 4px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+}
+
+
+/* Form */
+
+.contact-form {
+    padding: 35px;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(4,5,6,0.5);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.35);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: #080a0b;
+    border: 1px solid rgba(255,255,255,0.07);
+    color: #fff;
+    padding: 14px 15px;
+    outline: none;
+    border-radius: 0;
+    font-size: 0.78rem;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgba(130,0,0,0.7);
+    box-shadow: 0 0 20px rgba(100,0,0,0.06);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.send-btn {
+    width: 100%;
+    border: 1px solid #700000;
+    background: #650000;
+    color: #fff;
+    padding: 15px;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-btn:hover {
+    background: #950000;
+}
+
+.send-btn i {
+    margin-left: 8px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
-    margin-top: 0;
+    position: relative;
+    z-index: 10;
+    padding: 70px 0;
+    background: #020304;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+footer p {
+    margin: 12px 0 25px;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.footer-line {
+    width: 60px;
+    height: 1px;
+    background: #700000;
+    margin: auto auto 20px;
+}
+
+footer small {
+    color: rgba(255,255,255,0.2);
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bloodDrip {
+    0% {
+        transform: scaleY(0.3);
+        opacity: 0.5;
+        transform-origin: top;
+    }
+
+    30% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateY(8px) scaleY(1.05);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(15px) scaleY(0.4);
+        opacity: 0;
+    }
+}
+
+@keyframes fallingBlood {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes pulseText {
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes arrowDown {
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translateY(8px);
+        opacity: 0.8;
+    }
+}
+
+@keyframes flickerLight {
+    0%,
+    18%,
+    22%,
+    60%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    21%,
+    61%,
+    63% {
+        opacity: 0.1;
+    }
+}
+
+@keyframes windowFlicker {
+    0%,
+    30%,
+    34%,
+    70%,
+    100% {
+        opacity: 1;
+    }
+
+    32%,
+    33%,
+    72%,
+    73% {
+        opacity: 0.25;
+    }
+}
+
+@keyframes fogMove {
+    from {
+        transform: translateX(-80px);
+    }
+
+    to {
+        transform: translateX(100px);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 0 !important;
+    }
+
+    .game-card {
+        width: 220px;
+    }
+
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .other-skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .house {
+        transform: scale(0.75) !important;
+    }
+
+    .road-line {
+        width: 300px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    #welcomeScreen,
+    #games {
+        min-height: 850px;
+        height: 850px;
+    }
+
+    .welcome-title {
+        font-size: clamp(3.5rem, 17vw, 7rem);
+    }
+
+    .welcome-small {
+        letter-spacing: 4px;
+    }
+
+    .game-card {
+        width: 165px;
+        min-height: 170px;
+        padding: 18px;
+    }
+
+    .game-card h3 {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+
+    .game-card p {
+        font-size: 0.6rem;
+    }
+
+    .game-icon {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    .game-card.top-left {
+        top: 12%;
+        left: 4%;
+    }
+
+    .game-card.top-right {
+        top: 12%;
+        right: 4%;
+    }
+
+    .game-card.bottom-left {
+        bottom: 12%;
+        left: 4%;
+    }
+
+    .game-card.bottom-right {
+        bottom: 12%;
+        right: 4%;
+    }
+
+    .games-center h1 {
+        font-size: 3rem;
+        letter-spacing: 5px;
+    }
+
+    .personal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .other-skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project-card {
+        padding: 25px;
+        gap: 18px;
+    }
+
+    .portfolio-section {
+        width: min(100% - 30px, 1050px);
+        padding: 100px 0;
+    }
+
+    .road-line {
+        width: 230px;
+    }
+
+    .moon {
+        width: 80px;
+        height: 80px;
+        right: 8%;
+    }
+
+    #ghostTraveler {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    .house {
+        opacity: 0.65;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .welcome-title {
+        font-size: 3.4rem;
+        letter-spacing: 1px;
+    }
+
+    .enter-text {
+        font-size: 0.5rem;
+        letter-spacing: 3px;
+    }
+
+    .game-card {
+        width: 145px;
+        min-height: 155px;
+        padding: 15px;
+    }
+
+    .games-center h1 {
+        font-size: 2.4rem;
+    }
+
+    .games-center p {
+        letter-spacing: 3px;
+    }
+
+    .horror-modal .modal-body {
+        padding: 22px;
+    }
+
+    .rooms-grid {
+        max-width: 240px;
+    }
+
+    .room-btn {
+        height: 58px;
+    }
+
+    .code-sequence {
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+    }
+
+    .code-input-area {
+        flex-direction: column;
+    }
+
+    .memory-grid {
+        gap: 5px;
+    }
+
+    .portfolio-section h2 {
+        font-size: 3.4rem;
+    }
+
+    .other-skills-grid,
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .contact-form {
+        padding: 22px;
+    }
+
+    .road-line {
+        width: 170px;
+    }
+
+    .moon {
+        width: 65px;
+        height: 65px;
+    }
+
+    .house {
+        opacity: 0.5;
+    }
+
+    .quote-box {
+        margin-top: 30px;
+    }
 }

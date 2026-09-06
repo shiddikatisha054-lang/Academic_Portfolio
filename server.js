@@ -6,9 +6,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(express.static(__dirname));
 
 app.get("/", function (request, response) {
-    response.send("Academic Portfolio REST API is running.");
+    response.sendFile(__dirname + "/index.html");
+});
+
+app.get("/api", function (request, response) {
+    response.json({
+        message: "Academic Portfolio REST API is running.",
+        endpoints: ["/api/profile", "/api/education", "/api/skills", "/api/projects", "/api/projects/:id"]
+    });
 });
 
 app.get("/api/profile", function (request, response) {
