@@ -1,3 +1,4 @@
+console.log("TISHA GAMES JS LOADED");
 /* =========================================================
    TISHA — HORROR PORTFOLIO
    JavaScript
