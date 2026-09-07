@@ -1,56 +1,73 @@
 const express = require("express");
-const portfolioData = require("./data.json");
+const cors = require("cors");
+const fs = require("fs");
 
 const app = express();
+const PORT = 5000;
 
-const PORT = process.env.PORT || 3000;
-
+app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname));
 
-app.get("/", function (request, response) {
-    response.sendFile(__dirname + "/index.html");
-});
-
-app.get("/api", function (request, response) {
-    response.json({
-        message: "Academic Portfolio REST API is running.",
-        endpoints: ["/api/profile", "/api/education", "/api/skills", "/api/projects", "/api/projects/:id"]
+app.get("/", (req, res) => {
+    res.json({
+        success: true,
+        message: "Tisha Portfolio Backend is running!"
     });
 });
 
-app.get("/api/profile", function (request, response) {
-    response.json(portfolioData.profile);
-});
+app.post("/api/contact", (req, res) => {
 
-app.get("/api/education", function (request, response) {
-    response.json(portfolioData.education);
-});
+    const { name, email, subject, message } = req.body;
 
-app.get("/api/skills", function (request, response) {
-    response.json(portfolioData.skills);
-});
-
-app.get("/api/projects", function (request, response) {
-    response.json(portfolioData.projects);
-});
-
-app.get("/api/projects/:id", function (request, response) {
-    const projectId = Number(request.params.id);
-
-    const project = portfolioData.projects.find(function (item) {
-        return item.id === projectId;
-    });
-
-    if (project) {
-        response.json(project);
-    } else {
-        response.status(404).json({
-            message: "Project not found"
+    if (!name || !email || !subject || !message) {
+        return res.status(400).json({
+            success: false,
+            message: "All fields are required."
         });
     }
+
+    const newMessage = {
+        id: Date.now(),
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+        date: new Date().toLocaleString()
+    };
+
+    let messages = [];
+
+    try {
+        if (fs.existsSync("messages.json")) {
+            const data = fs.readFileSync("messages.json", "utf8");
+            messages = JSON.parse(data);
+        }
+    } catch (error) {
+        messages = [];
+    }
+
+    messages.push(newMessage);
+
+    fs.writeFileSync(
+        "messages.json",
+        JSON.stringify(messages, null, 2)
+    );
+
+    console.log("\n==============================");
+    console.log("NEW CONTACT MESSAGE");
+    console.log("==============================");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Subject:", subject);
+    console.log("Message:", message);
+    console.log("==============================\n");
+
+    res.json({
+        success: true,
+        message: "Your message has been received successfully!"
+    });
 });
 
-app.listen(PORT, function () {
-    console.log("Server is running on http://localhost:" + PORT);
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
 });
